@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-async-generators",
+    "@babel/plugin-transform-async-to-generator",
+    [
+      "module-resolver",
+      {
+        "root": ["./app"],
+        "alias": {
+          "lib": "./app/lib",
+          "domain": "./app/domain"
+        }
+      }
+    ]
+  ],
+  "sourceMaps": "inline",
+  "retainLines": true,
+  "env": {
+    "development": {
+      "sourceMaps": "inline",
+      "retainLines": true
+    }
+  }
+}
