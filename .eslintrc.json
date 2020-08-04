@@ -22,9 +22,9 @@
     "quotes": 0,
     "prefer-template": "error",
     "eqeqeq": 2,
-    "camelcase": [1, {"properties": "always"}],
+    "camelcase": [0, {"properties": "always"}],
     "brace-style": 2,
-    "max-depth": [2, 2],
+    "max-depth": [2, 3],
     "max-params": [2, 3],
     "consistent-return": 0,
     "space-before-blocks": 2,
@@ -51,6 +51,7 @@
     "callback-return": [2, ["callback", "cb", "next"]],
     "comma-spacing": [2, {"before": false, "after": true}],
     "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
-    "semi-spacing": 2
+    "semi-spacing": 2,
+    "max-len": ["error", {"code": 150}]
   }
 }
