@@ -40,14 +40,13 @@ function main() {
     const active = get(breathingTechniques, 'data.flags.zoroasterMacro.active', false)
     const die = martialArtsDie(actor)
 
-    console.log('ACTIVE', active)
-
     const carryingCapacity = '???' // TODO: How to to this?
 
     if (!active) {
       // ACTIVATE breathing state
-      const hadKiPoints = spend(actor, 'Ki Points', { preventNegativeResource: true })
+      const [hadKiPoints] = spend(actor, 'Ki Points', { preventNegativeResource: true })
       if (!hadKiPoints) return ui.notifications.warn('No <b>Ki Points</b> left.')
+      ui.notifications.info(`Spending <b>1</b> Ki Point with <b>Breathing Techniques</b>.`)
 
       const oldStrengthValue = get(actor, 'data.data.abilities.str.value')
 
@@ -63,7 +62,7 @@ function main() {
 
       actor.update({
         'data.abilities.str.value': oldStrengthValue + die,
-        'data.attributes.ac.value': O_oldACBase + O_ACMod1 + O_ACMod2 + 1,
+        // 'data.attributes.ac.value': O_oldACBase + O_ACMod1 + O_ACMod2 + 1,
         'flags.obsidian.attributes.ac.base': O_oldACBase + 1,
       })
     } else {
@@ -71,14 +70,14 @@ function main() {
       const oldStrengthValue = get(breathingTechniques, 'data.flags.zoroasterMacro.oldStrengthValue')
 
       const O_oldACBase = get(breathingTechniques, 'data.flags.zoroasterMacro.oldACBase', 10)
-      const O_ACMod1 = get(actor.data, `data.abilities.${get(actor.data, 'flags.obsidian.attributes.ac.ability1')}.mod`, 0)
-      const O_ACMod2 = get(actor.data, `data.abilities.${get(actor.data, 'flags.obsidian.attributes.ac.ability2')}.mod`, 0)
+      // const O_ACMod1 = get(actor.data, `data.abilities.${get(actor.data, 'flags.obsidian.attributes.ac.ability1')}.mod`, 0)
+      // const O_ACMod2 = get(actor.data, `data.abilities.${get(actor.data, 'flags.obsidian.attributes.ac.ability2')}.mod`, 0)
 
       breathingTechniques.update({ 'flags.zoroasterMacro': null })
 
       actor.update({
         'data.abilities.str.value': oldStrengthValue,
-        'data.attributes.ac.value': O_oldACBase + O_ACMod1 + O_ACMod2,
+        // 'data.attributes.ac.value': O_oldACBase + O_ACMod1 + O_ACMod2,
         'flags.obsidian.attributes.ac.base': O_oldACBase,
       })
     }

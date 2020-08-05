@@ -7,4 +7,17 @@
   },
   "files.eol": "\n",
   "editor.tabSize": 2,
+  "actionButtons": {
+    "loadNpmCommands":false, // Disables automatic generation of actions for npm commands.
+    "commands": [
+      {
+        "name": "Bundle",
+        "command": "yarn bundle",
+      },
+      {
+        "name": "Publish",
+        "command": "gulp publish",
+      }
+    ]
+  }
 }
