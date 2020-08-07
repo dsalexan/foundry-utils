@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: 'src/index.js',
+  input: 'src/macros/class/breathingTechniques.js',
   output: {
     file: 'dist/iife.js',
     format: 'iife',

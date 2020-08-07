@@ -30,10 +30,13 @@ function zoroasterData(actor) {
 
 function main() {
   if (token) {
+    const data = zoroasterData(actor)
+    if (!data) return
+
     const {
       master,
       items: { breathingTechniques },
-    } = zoroasterData(actor) || {}
+    } = data
 
     if (master) return ui.notifications.error('Breathing Techniques not implemented for <b>masters</b>.')
 
